@@ -49,6 +49,19 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def resolve_output_path(output: Path) -> Path:
+    """Resolve and validate the output path against the working directory."""
+    base_dir = Path.cwd().resolve()
+    target_path = output.resolve()
+
+    if not target_path.is_relative_to(base_dir):
+        raise ValueError(
+            f"Output path must stay within the current working directory: {output}"
+        )
+
+    return target_path
+
+
 def build_dataset(input_dir: Path, output: Path, lang: str) -> int:
     if not input_dir.is_dir():
         raise ValueError(f"Input directory does not exist: {input_dir}")
@@ -59,10 +72,11 @@ def build_dataset(input_dir: Path, output: Path, lang: str) -> int:
         raise ValueError(f"No .txt files found in: {input_dir}")
 
     detector = BoundaryDetector(lang=lang)
+
+    output = resolve_output_path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
 
     sentence_count = 0
-
     with output.open("w", encoding="utf-8") as output_file:
         for source_path in text_files:
             with source_path.open(encoding="utf-8") as input_file:
