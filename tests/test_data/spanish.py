@@ -24,6 +24,7 @@ TEST_DATA = [
     "Lea p. ej. el capítulo 5.",
     "Ayer le dije que no.| 5 personas llegaron después.",
     "Lo dejo entre nos.| 3 personas lo saben.",
+    "El corredor No. 103 llegó 4 grados.",
     "El tren para.| 5 pasajeros bajan.",
     "La reunión es el lun. 15 de enero.",
     "Nació el 5 de abr. de 1990.",
@@ -31,6 +32,8 @@ TEST_DATA = [
     "Las FF.AA. emitieron un comunicado oficial.",
     "El departamento de RR.HH. aprobó las vacaciones.",
     "La reunión es el lun. 15 de enero.",
+    "La empresa Rodríguez y Cía. firmó el contrato junto con la Asoc. Internacional de Comercio.",
+    "Trabaja en la Asoc.| Mañana tiene una reunión.",
 
     # structural headings
     "Capítulo 1. El Comienzo.| Estaba oscuro afuera. | Nada se movía.",

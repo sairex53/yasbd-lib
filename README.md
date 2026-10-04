@@ -263,6 +263,12 @@ detector = BoundaryDetector(
     # [https://en.wikipedia.org/wiki/Block_quotation](https://en.wikipedia.org/wiki/Block_quotation)
     preserve_quote_and_paren=True,
 
+    # hook: Optional per-paragraph post-processing callback.
+    # Receives a dict with ``text``, ``lang``, ``boundaries`` and``paragraph_index`` keys;
+    # mutate ``boundaries`` in place to add or remove sentence boundaries.
+    # Defaults to None.
+    hook = None,
+
     # Enable verbose logging. Defaults to `False`.
     verbose=True,
 )
